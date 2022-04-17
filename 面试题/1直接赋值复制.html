@@ -1,0 +1,28 @@
+<!--
+ * @Author: wandouni
+ * @Date: 2022-04-17 15:59:08
+ * @LastEditors: wandouni
+ * @LastEditTime: 2022-04-17 16:06:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const hunter = {
+        name: "hunter",
+        gender: "male",
+      };
+      const hunterCopy = hunter;
+      hunterCopy.gender = "female";
+      console.log(hunter !== hunterCopy); // false
+      console.log(hunter.gender === "female"); // true
+      console.log(hunterCopy.name === "hunter"); //true
+    </script>
+  </body>
+</html>

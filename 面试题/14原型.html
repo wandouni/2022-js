@@ -1,0 +1,27 @@
+<!--
+ * @Author: wandouni
+ * @Date: 2022-04-17 16:54:38
+ * @LastEditors: wandouni
+ * @LastEditTime: 2022-04-17 16:58:39
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Staff(name) {
+        this.name = name;
+      }
+      let hunter = new Staff("hunter");
+      console.log(hunter.constructor === Staff); //true
+      console.log(hunter._proto_ === Staff); //false
+      console.log(hunter.prototype === Staff.constructor); //false
+      console.log(hunter._proto_ === Staff.prototype); //true
+    </script>
+  </body>
+</html>

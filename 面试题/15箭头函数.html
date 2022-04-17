@@ -1,0 +1,28 @@
+<!--
+ * @Author: wandouni
+ * @Date: 2022-04-17 17:00:47
+ * @LastEditors: wandouni
+ * @LastEditTime: 2022-04-17 17:05:38
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const Staff = (name) => {
+        this.name = name;
+      };
+      console.log(Staff.prototype !== undefined); //false
+      console.log(Staff.constructor === Function); //true
+      // const hunter = new Staff("hunter"); // Uncaught TypeError: Staff is not a constructor
+      // console.log(hunter.name === "hunter");
+      console.log(Staff.proto === null); //true
+      console.log(Staff.proto); //undefined
+    </script>
+  </body>
+</html>
