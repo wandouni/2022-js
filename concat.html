@@ -1,0 +1,31 @@
+<!--
+ * @Author: wandouni
+ * @Date: 2022-04-21 18:05:57
+ * @LastEditors: wandouni
+ * @LastEditTime: 2022-04-21 18:22:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let list = [1];
+      let list1 = list.concat(2, [3, 4]);
+      let list2 = list.concat(2, [3, [4]]);
+      let add = [3, [4]];
+      // concat默认打平二维数组，更高维不打平
+      // 组织concat默认打平数组
+      add[Symbol.isConcatSpreadable] = false;
+      let list3 = list.concat(2, add);
+      console.log(list); // [1]
+      console.log(list1); // [1,2,3,4]
+      console.log(list2); // [1,2,3,[4]]
+      console.log(list3); // [1,2,[3,[4]]]
+    </script>
+  </body>
+</html>
