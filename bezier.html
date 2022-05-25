@@ -1,0 +1,35 @@
+<!--
+ * @Author: wandouni
+ * @Date: 2022-04-27 09:51:29
+ * @LastEditors: wandouni
+ * @LastEditTime: 2022-04-27 09:57:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getQuadraticPoint(step, from, cp, to) {
+        const pos = 1 - step;
+        const x =
+          pos * pos * from.x + 2 * pos * step * cp.x + step * step * to.x;
+        const y =
+          pos * pos * from.y + 2 * pos * step * cp.y + step * step * to.y;
+        return { x, y, step };
+      }
+      console.log(
+        getQuadraticPoint(
+          0.8,
+          { x: 0, y: 0 },
+          { x: 100, y: 0 },
+          { x: 100, y: 100 }
+        )
+      );
+    </script>
+  </body>
+</html>

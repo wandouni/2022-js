@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet/less" type="text/css" href="./color.less" />
+    <script>
+      less = {
+        env: "development",
+        logLevel: 2,
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        globalVars: {
+          var1: '"quoted value"',
+          var2: "regular value",
+        },
+        rootpath: ":/a.com/",
+      };
+    </script>
+    <script src="./less.min.js"></script>
+    <script>
+      function changeColor() {
+        const color = document.querySelector("#input")?.value;
+        if (!color) return;
+        less.modifyVars({ "@color": color });
+      }
+    </script>
+  </head>
+  <body>
+    <input type="color" id="input" />
+    <button onclick="changeColor()">改变颜色</button>
+  </body>
+</html>

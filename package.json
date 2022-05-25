@@ -1,0 +1,19 @@
+{
+  "name": "2022-js-fragment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wandouni/2022-js-fragment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wandouni/2022-js-fragment/issues"
+  },
+  "homepage": "https://github.com/wandouni/2022-js-fragment#readme"
+}

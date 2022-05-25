@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Fool {
+        center;
+        name;
+        constructor(name, center) {
+          this.name = name;
+          this.center = center;
+        }
+        logName() {
+          console.log(this.name);
+        }
+        logCenter() {
+          console.log(this.name + ":" + this.center);
+        }
+        addCenter(center) {
+          center.x += 1;
+          center.y += 1;
+        }
+      }
+
+      const fool = new Fool("wandou", { x: 0, y: 0 });
+      fool.addCenter({ x: 1, y: 1 });
+      fool.logCenter();
+    </script>
+  </body>
+</html>
