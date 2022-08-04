@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 参考：https://juejin.cn/post/7019221858079735815#heading-4 -->
+    <script>
+      // 生成一个二叉树
+      function Node(name) {
+        this.name = name;
+        this.left = null;
+        this.right = null;
+      }
+
+      const n1 = new Node("1");
+      const n2 = new Node("2");
+      const n3 = new Node("3");
+      const n4 = new Node("4");
+      const n5 = new Node("5");
+      const n6 = new Node("6");
+      const n7 = new Node("7");
+
+      n1.left = n2;
+      n1.right = n3;
+
+      n2.left = n4;
+      n2.right = n5;
+
+      n3.left = n6;
+      n3.right = n7;
+
+      // bfc
+      function bfsIteration(node) {
+        const queue = [node];
+        while (queue.length) {
+          const item = queue.shift();
+          console.log("item.name: ", item.name);
+          if (item.left) {
+            queue.push(item.left);
+          }
+          if (item.right) {
+            queue.push(item.right);
+          }
+        }
+      }
+      // bfsIteration(n1); // 1 2 3 4 5 6 7
+
+      // 【前、中、后】代表根节点在遍历中的顺序
+      // dfs 前序遍历
+      function bfsRootFirstIterater(node) {
+        const stack = [node];
+        while (stack.length) {
+          const item = stack.pop();
+          console.log("item.name: ", item.name);
+          if (item.right) {
+            stack.push(item.right);
+          }
+          if (item.left) {
+            stack.push(item.left);
+          }
+        }
+      }
+
+      function bfsRootFirstRecursion(node) {
+        console.log("node.name: ", node.name);
+        if (node.left) {
+          bfsRootFirstRecursion(node.left);
+        }
+        if (node.right) {
+          bfsRootFirstRecursion(node.right);
+        }
+      }
+
+      // bfsRootFirstIterater(n1); // 1 2 4 5 3 6 7
+      // bfsRootFirstRecursion(n1); // 1 2 4 5 3 6 7
+
+      // dfs 中序遍历
+      function bfsRootMiddleIterater(node) {}
+      function bfsRootMiddleRecursion(node) {
+        if (node.left) {
+          bfsRootMiddleRecursion(node.left);
+        }
+        console.log("node.name: ", node.name);
+        if (node.right) {
+          bfsRootMiddleRecursion(node.right);
+        }
+      }
+
+      function walkInOrder(root) {
+        if (root === null) return;
+
+        const stack = [];
+        let current = root;
+
+        while (stack.length || current) {
+          while (current) {
+            stack.push(current);
+            current = current.left;
+          }
+          const last = stack.pop();
+
+          console.log(last);
+
+          current = last.right;
+        }
+      }
+
+      // bfsRootMiddleRecursion(n1); // 4 2 5 1 6 3 7
+      walkInOrder(n1); // 4 2 5 1 6 3 7
+
+      // dfs 后序遍历
+      function bfsRootLastIterater(root) {
+        if (root === null) return [];
+
+        const tempStack = [root],
+          result = [];
+
+        while (tempStack.length) {
+          const last = tempStack.pop();
+
+          result.push(last);
+
+          if (last.left) tempStack.push(last.left);
+          if (last.right) tempStack.push(last.right);
+        }
+
+        return result.reverse();
+      }
+
+      function bfsRootLastRecursion(node) {
+        if (node.left) {
+          bfsRootLastRecursion(node.left);
+        }
+        if (node.right) {
+          bfsRootLastRecursion(node.right);
+        }
+        console.log("node.name: ", node.name);
+      }
+
+      bfsRootLastRecursion(n1); // 4 5 2 6 7 3 1
+    </script>
+  </body>
+</html>

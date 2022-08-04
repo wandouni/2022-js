@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      export const copyObj = (o) => {
+        if (Array.isArray(o)) {
+          const arr = [];
+          o.forEach((c) => {
+            arr.push(copyObj(c));
+          });
+          return arr;
+        } else if (typeof o === "object") {
+          if (o === null) {
+            return null;
+          } else if (o.constructor === RegExp) {
+            return o;
+          }
+          const _o = {};
+          for (let key in o) {
+            _o[key] = copyObj(o[key]);
+          }
+          return _o;
+        }
+        return o;
+      };
+    </script>
+  </body>
+</html>

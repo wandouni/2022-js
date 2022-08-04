@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const tree = [
+        {
+          name: "path1",
+          path: "/path1",
+          children: [
+            {
+              name: "path11",
+              path: "/path11",
+              children: [
+                { name: "path111", path: "/path111" },
+                { name: "path112", path: "/path112" },
+              ],
+            },
+            { name: "path12", path: "/path12" },
+          ],
+        },
+        {
+          name: "path2",
+          path: "/path2",
+          children: [
+            { name: "path21", path: "/path21" },
+            {
+              name: "path22",
+              path: "/path22",
+              children: [
+                { name: "path221", path: "/path221" },
+                { name: "path222", path: "/path222" },
+              ],
+            },
+          ],
+        },
+      ];
+
+      // /path111
+
+      const getPaths = (tree, path) => {
+        for (let i = 0; i < tree?.length; i++) {
+          if (tree[i]?.path === path) {
+            return [tree[i]];
+          }
+          if (tree[i]?.children) {
+            const target = getPaths(tree[i]?.children, path);
+            if (target?.length !== 0) {
+              return [tree[i], ...target];
+            }
+          }
+        }
+        return [];
+      };
+
+      console.log("/path111: ", getPaths(tree, "/path111"));
+      console.log("/path112: ", getPaths(tree, "/path112"));
+      console.log("/path221: ", getPaths(tree, "/path221"));
+    </script>
+  </body>
+</html>

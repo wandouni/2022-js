@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #canvas {
+        border: 1px solid #f00;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Scaled rectangle
+      // x,y
+      // x,y乘以x,y height乘以x,height乘以y
+      ctx.scale(9, 3);
+      ctx.fillStyle = "red";
+      // x,y,width,height
+      ctx.fillRect(10, 10, 8, 20);
+
+      alert("-中断-");
+
+      // Reset current transformation matrix to the identity matrix
+      // 使用单位矩阵重新设置当前变形的方法。
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+      // Non-scaled rectangle
+      ctx.fillStyle = "gray";
+      ctx.fillRect(10, 10, 8, 20);
+    </script>
+  </body>
+</html>
